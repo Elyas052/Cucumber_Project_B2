@@ -1,16 +1,15 @@
 package com.loop.step_definitions;
 
 import com.loop.pages.LoginPage;
-import com.loop.utilities.BrowserUtils;
-import com.loop.utilities.ConfigurationReader;
-import com.loop.utilities.DocuportConstants;
-import com.loop.utilities.Driver;
+import com.loop.utilities.*;
 import io.cucumber.java.en.*;
 
+import static com.loop.utilities.Driver.driver;
 import static org.junit.Assert.assertTrue;
 
 public class LoginStepDefs {
 
+    // Create an instance of the LoginPage class for interaction
     LoginPage loginPage = new LoginPage();
 
     @Given("user is on Docuport login page")
@@ -20,24 +19,43 @@ public class LoginStepDefs {
 
     @When("user enters username for client")
     public void user_enters_username_for_client() {
-        BrowserUtils.waitForClickable(loginPage.loginButton, DocuportConstants.large);
+        BrowserUtils.waitForClickable(loginPage.loginButton, DocuportConstants.small);
         loginPage.userNameInput.sendKeys(DocuportConstants.USERNAME_CLIENT);
-        assertTrue(3 == 4);
+        //assertTrue(3 == 4);
     }
 
     @When("user enters password for client")
     public void user_enters_password_for_client() {
-
+        BrowserUtils.waitForClickable(loginPage.loginButton, DocuportConstants.small);
+        loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_CLIENT);
     }
 
-    @When("user clicks login button")
+    @And("user clicks login button")
     public void user_clicks_login_button() {
-
+        BrowserUtils.waitForVisibility(loginPage.loginButton, DocuportConstants.large).click();
     }
 
-    @Then("user should see the home page for client")
-    public void user_should_see_the_home_page_for_client() {
+    @And("user click to continue button")
+    public void userClickToContinueButton() {
+        BrowserUtils.waitForClickable(loginPage.cntBtn, DocuportConstants.large);
+        loginPage.cntBtn.click();
+        BrowserUtils.justWait(5);
+    }
 
+    @And("user should see the home page for client")
+    public void user_should_see_the_home_page_for_client() {
+        BrowserUtils.justWait(10);
+    }
+
+    @And("user should click Batch1 Group1 button for Log out")
+    public void userShouldClickBatchGroupButtonForLogOut() {
+        BrowserUtils.waitForClickable(loginPage.userIcon, DocuportConstants.small).click();
+        BrowserUtils.waitForClickable(loginPage.logOut, DocuportConstants.small).click();
+    }
+
+    @Then("user should see docuport home page")
+    public void userShouldSeeDocuportHomePage() {
+        System.out.println(driver.getTitle());
     }
 
     @When("user enters username for employee")

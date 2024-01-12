@@ -20,7 +20,7 @@ public class Driver {
      * Making driver instance private.
      * Static - run before everything else and also used in static method.
      */
-    private static WebDriver driver;
+    public static WebDriver driver;
 
     /**
      Reusable method that will return the same driver instance every time called.

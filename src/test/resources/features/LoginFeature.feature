@@ -3,12 +3,15 @@ Feature: Docuport Login Logout Feature
   Background:
     Given user is on Docuport login page
 
-  @smoke @nadir @userstoy @testplan @testexecution @B2G3-197
+  #@elyas
   Scenario: Login as a client
     When user enters username for client
     And user enters password for client
     And user clicks login button
-    Then user should see the home page for client
+    And user click to continue button
+    And user should see the home page for client
+    And user should click Batch1 Group1 button for Log out
+    Then user should see docuport home page
 
   @regression @closed @wip @smoke @nsh
   Scenario: Login as an employee
