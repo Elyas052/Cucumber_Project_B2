@@ -1,5 +1,7 @@
 package com.loop.pages;
 
+import com.loop.utilities.BrowserUtils;
+import com.loop.utilities.DocuportConstants;
 import com.loop.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,6 +29,55 @@ public class LoginPage {
 
     @FindBy(xpath = "//span[contains(text(),'Log out')]")
     public WebElement logOut;
+
+    @FindBy(xpath = "//button[@type='submit']//span")
+    public WebElement continueButton;
+
+    /**
+     * logins to docuport
+     *
+     * @param username
+     * @param password
+     * @author elyas
+     */
+
+    public void loginDocuport(String username, String password){
+        BrowserUtils.waitForVisibility(userNameInput, DocuportConstants.small);
+        userNameInput.clear();
+        userNameInput.sendKeys(username);
+        passwordInput.clear();
+        passwordInput.sendKeys(password);
+        loginButton.click();
+        if (BrowserUtils.waitForVisibility(continueButton, DocuportConstants.small).isDisplayed()){
+            continueButton.click();
+        }
+    }
+
+//    public void loginDocuport(String username, String password) {
+//        BrowserUtils.waitForVisibility(userNameInput, DocuportConstants.small);
+//        userNameInput.clear();
+//        userNameInput.sendKeys(username);
+//        passwordInput.clear();
+//        passwordInput.sendKeys(password);
+//        BrowserUtils.waitForClickable(loginButton, DocuportConstants.small);
+//        BrowserUtils.clickWithJS(loginButton);
+//        BrowserUtils.justWait(DocuportConstants.small);
+//        if (continueButton.isDisplayed()) {
+//            continueButton.click();
+//        }
+//    }
+
+//    public void loginDocuport(String username, String password) {
+//        BrowserUtils.waitForVisibility(userNameInput, DocuportConstants.small);
+//        userNameInput.clear();
+//        userNameInput.sendKeys(username);
+//        userNameInput.clear();
+//        userNameInput.sendKeys(password);
+//        loginButton.click();
+//        if (continueButton.isDisplayed()) {
+//            continueButton.click();
+//        }
+//    }
 
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);

@@ -4,6 +4,8 @@ import com.loop.pages.LoginPage;
 import com.loop.utilities.*;
 import io.cucumber.java.en.*;
 
+import java.util.Map;
+
 import static com.loop.utilities.Driver.driver;
 import static org.junit.Assert.assertTrue;
 
@@ -100,6 +102,21 @@ public class LoginStepDefs {
 
     @Then("user should see the home page for supervisor")
     public void user_should_see_the_home_page_for_supervisor() {
+
+    }
+
+    @When("user enters credentials")
+    public void user_enters_credentials(Map<String, String> credentials) {
+
+//        for (Map.Entry<String, String> entry : credentials.entrySet()) {
+//            String key = entry.getKey();
+//            System.out.println(key);
+//            String value = entry.getValue();
+//            System.out.println("Value = " + value);
+//            System.out.println("====================");
+//        }
+
+        loginPage.loginDocuport(credentials.get("username"), credentials.get("password"));
 
     }
 
