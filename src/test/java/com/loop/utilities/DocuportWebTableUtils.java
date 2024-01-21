@@ -9,14 +9,13 @@ import java.util.InputMismatchException;
 public class DocuportWebTableUtils {
 
     /**
-     * Returns any field from table by index
+     * Returns any field from the table by index.
      *
-     * @param driver
-     * @param emailAddress
-     * @param field
-     * @autor Elyas
+     * @param driver       The WebDriver instance.
+     * @param emailAddress The email address used to identify the row in the table.
+     * @param field        The field name to retrieve from the table.
+     * @author Elyas
      */
-
     public static String returnAnyField(WebDriver driver, String emailAddress, String field) {
         WebElement element = null;
         String xpath = "";
@@ -38,7 +37,7 @@ public class DocuportWebTableUtils {
                 element = driver.findElement(By.xpath(xpath));
                 break;
             case "role":
-                xpath = "//td[2][text()='"+emailAddress+"']/following-sibling::td[4]/span/span";
+                xpath = "//td[2][text()='" + emailAddress + "']/following-sibling::td[4]/span/span";
                 element = driver.findElement(By.xpath(xpath));
                 break;
             default:

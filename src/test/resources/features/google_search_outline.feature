@@ -1,6 +1,6 @@
 Feature: Scenario outline practice
 
-  #@googleSearchOutline
+  @googleSearchOutline
   Scenario Outline: Google search for capital cities
     Given user is on Google search page
     When user searches for the "<country>"

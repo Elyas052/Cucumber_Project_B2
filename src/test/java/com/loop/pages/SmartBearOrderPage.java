@@ -7,10 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class SmartBearOrderPage {
-    //extends SamrtBearBasePage
+public class SmartBearOrderPage extends SmartBearBasePage {
 
-    public SmartBearOrderPage(){
+    public SmartBearOrderPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

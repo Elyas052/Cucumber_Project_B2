@@ -34,21 +34,23 @@ public class LoginPage {
     public WebElement continueButton;
 
     /**
-     * logins to docuport
+     * Logins to Docuport with the provided username and password.
      *
-     * @param username
-     * @param password
-     * @author elyas
+     * @param username The username to log in with.
+     * @param password The password to log in with.
+     * @author Elyas
      */
 
-    public void loginDocuport(String username, String password){
+    public void loginDocuport(String username, String password) {
         BrowserUtils.waitForVisibility(userNameInput, DocuportConstants.small);
         userNameInput.clear();
         userNameInput.sendKeys(username);
         passwordInput.clear();
         passwordInput.sendKeys(password);
         loginButton.click();
-        if (BrowserUtils.waitForVisibility(continueButton, DocuportConstants.small).isDisplayed()){
+
+        // Check if the continued button is displayed and click it if true
+        if (BrowserUtils.waitForVisibility(continueButton, DocuportConstants.small).isDisplayed()) {
             continueButton.click();
         }
     }
@@ -79,6 +81,9 @@ public class LoginPage {
 //        }
 //    }
 
+    /**
+     * Initializes the LoginPage by initializing the PageFactory.
+     */
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }

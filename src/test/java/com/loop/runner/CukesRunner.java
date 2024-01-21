@@ -10,14 +10,15 @@ import org.junit.runner.RunWith;
         // To generate a report in html format.
         plugin = {"html:target/html-reports/cucumber-report.html",
                 // To generate a report in JSON format.
-                "json:target/json-reports/json-report.json"},
-        // This is for the failed test report.
-        // "rerun:target/rerun.txt"},
+                "json:target/json-reports/json-report.json",
+                // This is for the failed test report.
+                "rerun:target/rerun.txt"},
         // Path to feature file
         features = "src/test/resources/features",
         // Path to step definition classes
         glue = "com/loop/step_definitions",
-        tags = "@wip",
+        //tags = "@smoke or @regression and not @closed",
+        tags = "@mapList",
         // It can be true or false. When dryRun=true, Hook Class and any browser will not run.
         dryRun = false,
         // Make console output for the Cucumber test much more readable and remove any unreadable character.

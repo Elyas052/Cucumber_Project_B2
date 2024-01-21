@@ -6,7 +6,7 @@ import io.cucumber.java.en.*;
 
 import java.util.Map;
 
-import static com.loop.utilities.Driver.driver;
+import static com.loop.utilities.Driver.getDriver;
 import static org.junit.Assert.assertTrue;
 
 public class LoginStepDefs {
@@ -57,7 +57,7 @@ public class LoginStepDefs {
 
     @Then("user should see docuport home page")
     public void userShouldSeeDocuportHomePage() {
-        System.out.println(driver.getTitle());
+        System.out.println(getDriver().getTitle());
     }
 
     @When("user enters username for employee")
@@ -117,7 +117,5 @@ public class LoginStepDefs {
 //        }
 
         loginPage.loginDocuport(credentials.get("username"), credentials.get("password"));
-
     }
-
 }

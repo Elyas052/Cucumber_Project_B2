@@ -20,21 +20,21 @@ public class Driver {
      * Making driver instance private.
      * Static - run before everything else and also used in static method.
      */
-    public static WebDriver driver;
+    private static WebDriver driver;
 
     /**
-     Reusable method that will return the same driver instance every time called.
+     * Reusable method that will return the same driver instance every time called.
      */
 
     /**
      * Singleton pattern.
      *
-     * @return driver
+     * @return driver The WebDriver instance.
      * @author Elyas
      */
     public static WebDriver getDriver() {
         if (driver == null) {
-            // For read browser from ConfigurationReader.getProperty
+            // For reading browser from ConfigurationReader.getProperty
             String browserType = ConfigurationReader.getProperty("browser");
             switch (browserType.toLowerCase()) {
                 case "chrome":
@@ -57,7 +57,7 @@ public class Driver {
     }
 
     /**
-     * Closing driver.
+     * Closing the driver.
      *
      * @author Elyas
      */
