@@ -8,6 +8,8 @@ import com.loop.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
@@ -18,18 +20,22 @@ import static org.junit.Assert.assertTrue;
 
 public class GoogleSearchStepDefs {
 
+    private static final Logger LOG = LogManager.getLogger();
+
     // Create an instance of the GoogleSearchPage class for interaction
     GoogleSearchPage googleSearchPage = new GoogleSearchPage();
 
     @Given("user is on Google search page")
     public void user_is_on_google_search_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("google.url"));
+        LOG.info("User is on google page");
     }
 
     @When("user types Loop Academy in the google search box and clicks enter")
     public void user_types_loop_academy_in_the_google_search_box_and_clicks_enter() {
         googleSearchPage.searchBox.sendKeys("Loop Academy" + Keys.ENTER);
         BrowserUtils.takeScreenshot();
+        LOG.info("User types Loop academy");
     }
 
     @Then("user should see Loop Academy - Google Search in the google title")
