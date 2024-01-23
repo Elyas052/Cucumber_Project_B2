@@ -21,7 +21,7 @@ public class LoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement loginButton;
 
-    @FindBy(xpath = "//span[.=' Continue ']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement cntBtn;
 
     @FindBy(xpath = "//div[@class='v-avatar primary']")

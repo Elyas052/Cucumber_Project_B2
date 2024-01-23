@@ -4,6 +4,8 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
+// mvn test -Dcucumber.filter.tags=@multiThread
+
 // RunWith comes from JUnit and triggers the execution of the test.
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -17,7 +19,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         // Path to step definition classes
         glue = "com/loop/step_definitions",
-        tags = "@smoke",
+        tags = "@day13",
         // It can be true or false. When dryRun=true, Hook Class and any browser will not run.
         dryRun = false,
         // Make console output for the Cucumber test much more readable and remove any unreadable character.

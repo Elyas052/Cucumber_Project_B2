@@ -39,6 +39,7 @@ public class LoginStepDefs {
 
     @And("user click to continue button")
     public void userClickToContinueButton() {
+        BrowserUtils.justWait(5);
         BrowserUtils.waitForClickable(loginPage.cntBtn, DocuportConstants.large);
         loginPage.cntBtn.click();
         BrowserUtils.justWait(5);
