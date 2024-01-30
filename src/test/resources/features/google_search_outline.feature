@@ -1,6 +1,5 @@
 Feature: Scenario outline practice
 
-  @googleSearchOutline @multiThread
   Scenario Outline: Google search for capital cities
     Given user is on Google search page
     When user searches for the "<country>"

@@ -1,8 +1,8 @@
 Feature: product data table practice
 
-  @ListOfMap
   Scenario: verify each product price
-    # practice List<Map<String, Sting>>
+    #practice List<Map<String, Sting>>
+    #@multiThread
     Given User is on the HomePage
     Then User should be able to see expected prices in following products
       | Category | Product           | expectedPrice |
@@ -32,8 +32,8 @@ Feature: product data table practice
 #  List Element 8 (Map):
 #  {Category=Monitors, Product=ASUS Full HD, expectedPrice=230}
 
-  @listOfList
-     # practice List<List<String, Sting>>
+  #@listOfList
+  #practice List<List<String, Sting>>
   Scenario: verify each product price listOfList
     Given User is on the HomePage
     Then User should be able to see expected prices in following products with listOflist
@@ -56,7 +56,7 @@ Feature: product data table practice
 #  List Element 8 (List<String>): [Monitors, ASUS Full HD, 230]
 
   # practice Map<String, List<String>>
-  @mapList
+  #@mapList
   Scenario: verify students names on discord
     Then User should be able to see the following names in their groups
       | Group1 | Parvana | Yuliia    | Feyruz |

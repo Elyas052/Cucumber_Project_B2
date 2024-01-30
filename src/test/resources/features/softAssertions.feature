@@ -1,6 +1,6 @@
 Feature: Practice soft assertions
 
-  @soft
+  #@soft
   Scenario: Soft assertions practice
     Given user is on Docuport login page
     Then user validates "Login" text is displayed

@@ -33,7 +33,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
 
         // Do not publish the results
-        publish = false
+        publish = true
 )
 public class CukesRunner {
 }
