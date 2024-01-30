@@ -6,15 +6,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+/**
+ * Factory class for creating WebDriver instances based on the specified browser type.
+ */
 public class WebDriverFactory {
 
     /**
-     * @param browserType
-     * @return the browser
+     * Creates and returns a WebDriver instance for the specified browser type.
+     *
+     * @param browserType Browser type (e.g., "chrome", "firefox", "safari")
+     * @return WebDriver instance corresponding to the specified browser type
      * @author Elyas
-      */
-    public static WebDriver getDriver (String browserType){
-        if(browserType.equalsIgnoreCase("chrome")){
+     */
+    public static WebDriver getDriver(String browserType) {
+        if (browserType.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             return new ChromeDriver();
         } else if (browserType.equalsIgnoreCase("firefox")) {

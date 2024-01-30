@@ -10,31 +10,28 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
+/**
+ * Driver class provides a singleton pattern for WebDriver initialization.
+ * It uses ThreadLocal to handle multi-threading and ensures a single driver instance per thread.
+ */
 public class Driver {
-    /**
-     * Creating the private constructor so this class's object is not reachable from and outside
-     */
 
+    /**
+     * Private constructor to prevent the instantiation of this class.
+     */
     private Driver() {
     }
 
     /**
-     * Making driver instance private
-     * static - run before everything else and also use in static method
+     * InheritableThreadLocal to manage WebDriver instances for each thread.
      */
-
-    // private static WebDriver driver;
-    // Implement threadLocal to achieve multi thread locally
-    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
+    private static final InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
     /**
-     Reusable method that will return the same driver instance every time called
-     */
-
-    /**
-     * Singleton pattern
+     * Reusable method that returns the same driver instance every time called.
+     * Uses a singleton pattern to create and manage WebDriver instances.
      *
-     * @return driver
+     * @return WebDriver instance
      * @author Elyas
      */
     public static WebDriver getDriver() {
@@ -56,7 +53,6 @@ public class Driver {
                 case "headless":
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless"); // enable headless mode
-                    // options.addArguments("--start-maximized"); // maximize
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver(options));
                     driverPool.get().manage().window().maximize();
@@ -80,7 +76,8 @@ public class Driver {
     }
 
     /**
-     * Closing driver
+     * Closes the WebDriver instance for the current thread.
+     * Removes the driver instance from the ThreadLocal variable.
      *
      * @author Elyas
      */

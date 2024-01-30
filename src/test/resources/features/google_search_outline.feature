@@ -6,10 +6,10 @@ Feature: Scenario outline practice
     When user searches for the "<country>"
     Then user should see the "<capital>" in the result
     Examples:
-      | country     | capital        |
-      | Azerbaijan  | Baku           |
-      | Ukraine     | Kyiv           |
-      | Afghanistan | Kabul          |
-      | USA         | Washington, DC |
-      | Turkiye     | Ankara         |
-      | Uzbekistan  | Tashkent       |
+      | country     | capital          |
+      | Azerbaijan  | Baku             |
+      | Ukraine     | Kyiv             |
+      | Afghanistan | Kabul            |
+      | USA         | Washington, D.C. |
+      | Turkiye     | Ankara           |
+      | Uzbekistan  | Tashkent         |
