@@ -13,6 +13,3 @@ Feature: Passing multiple parameters to the same step
       | zahid        |
       | anna         |
       | anything     |
-
-#    option + command + L - mac
-#    CTRL + ALT + L window

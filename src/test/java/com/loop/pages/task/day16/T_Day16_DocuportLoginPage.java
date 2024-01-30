@@ -1,4 +1,4 @@
-package com.loop.pages;
+package com.loop.pages.task.day16;
 
 import com.loop.utilities.BrowserUtils;
 import com.loop.utilities.DocuportConstants;

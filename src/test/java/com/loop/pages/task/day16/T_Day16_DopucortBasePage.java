@@ -1,4 +1,4 @@
-package com.loop.pages;
+package com.loop.pages.task.day16;
 
 import com.loop.utilities.Driver;
 import org.openqa.selenium.support.PageFactory;

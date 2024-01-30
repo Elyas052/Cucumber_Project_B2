@@ -7,9 +7,8 @@ Feature: Practice soft assertions
 #    And user validates "forgot password" text is displayed
     When user enters credentials
       | username | b1g1_client@gmail.com |
-      | password | Group1|
+      | password | Group1                |
     And user validates "Choose account" text is displayed
     And user clicks "home" button
     And user clicks "Invitations" button
     And user validates all assertions
-

@@ -1,6 +1,6 @@
-package com.loop.step_definitions;
+package com.loop.step_definitions.task.day15;
 
-import com.loop.pages.*;
+import com.loop.pages.task.day15.T_Day15_SmartBearOrderPage;
 import com.loop.utilities.*;
 import io.cucumber.java.en.*;
 import org.apache.logging.log4j.LogManager;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Map;
 
-import static com.loop.pages.T_Day15_SmartBearOrderPage.*;
+import static com.loop.pages.task.day15.T_Day15_SmartBearOrderPage.*;
 import static com.loop.utilities.SmartBearSoftConstants.*;
 import static org.junit.Assert.assertEquals;
 

@@ -1,4 +1,4 @@
-package com.loop.step_definitions;
+package com.loop.step_definitions.task.day16;
 
 import com.loop.utilities.ConfigurationReader;
 import com.loop.utilities.Driver;

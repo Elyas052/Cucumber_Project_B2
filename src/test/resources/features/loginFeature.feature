@@ -34,9 +34,10 @@ Feature: Docuport Login Logout Feature
   @dataTableMap
   Scenario: Login as a client map practice
     When user enters credentials
-      |username|b1g1_client@gmail.com|
-      |password|Group1               |
+      | username | b1g1_client@gmail.com |
+      | password | Group1                |
     Then user should see the home page for client
+
 
 
 

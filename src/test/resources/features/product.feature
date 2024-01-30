@@ -56,7 +56,6 @@ Feature: product data table practice
 #  List Element 7 (List<String>): [Monitors, Apple monitor 24, 400]
 #  List Element 8 (List<String>): [Monitors, ASUS Full HD, 230]
 
-
   # practice Map<String, List<String>>
   @mapList
   Scenario: verify students names on discord
@@ -64,11 +63,3 @@ Feature: product data table practice
       | Group1 | Parvana | Yuliia    | Feyruz |
       | Group2 | Maya    | Ievgeniia | Nadir  |
       | Group3 | Gavin   | Caglar    | Loop   |
-
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
-package com.loop.step_definitions;
+package com.loop.step_definitions.task.day14;
 
-import com.loop.pages.T_Day14_WikiSearchPage;
+import com.loop.pages.task.day14.T_Day14_WikiSearchPage;
 import com.loop.utilities.ConfigurationReader;
 import com.loop.utilities.Driver;
 import io.cucumber.java.en.*;
