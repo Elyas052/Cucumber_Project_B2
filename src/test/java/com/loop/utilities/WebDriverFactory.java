@@ -8,15 +8,19 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class WebDriverFactory {
 
-    /**
-     * Returns a WebDriver instance based on the specified browser type.
-     *
-     * @param browserType The type of browser to be used (e.g., "chrome", "firefox", "safari").
-     * @return The WebDriver instance corresponding to the specified browser type.
-     * @author Elyas
+    /*
+     * create a static method getDriver
+     * Accepts argument String - browserType
+     * returns webdriver
      */
-    public static WebDriver getDriver(String browserType) {
-        if (browserType.equalsIgnoreCase("chrome")) {
+
+    /**
+     * @param browserType
+     * @return the browser
+     * @author nsh
+      */
+    public static WebDriver getDriver (String browserType){
+        if(browserType.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             return new ChromeDriver();
         } else if (browserType.equalsIgnoreCase("firefox")) {

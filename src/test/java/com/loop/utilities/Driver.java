@@ -3,42 +3,43 @@ package com.loop.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
 public class Driver {
-
-    /**
-     * Creating the private constructor so this class's object is not reachable from the outside.
+    /*
+    Creating the private constructor so this class's object is not reachable from outside
      */
-    private Driver() {
+
+    private Driver(){
     }
 
-    /**
-     * Making driver instance private.
-     * Static - run before everything else and also used in static method.
-     */
-    //private static WebDriver driver;
-    // Implement threadLocal to achieve multi thread locally
-    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
-
-    /**
-     * Reusable method that will return the same driver instance every time called.
+    /*
+    making driver instance private
+    static - run before everything else and also use in static method
      */
 
-    /**
-     * Singleton pattern.
-     *
-     * @return driver The WebDriver instance.
-     * @author Elyas
+    // private static WebDriver driver;
+    // implement threadLocal to achieve multi thread locally
+    private  static InheritableThreadLocal <WebDriver> driverPool = new InheritableThreadLocal<>();
+
+    /*
+    reusable method that will return the same driver instance every time called
      */
-    public static WebDriver getDriver() {
-        if (driverPool.get() == null) {
-            // For reading browser from ConfigurationReader.getProperty
+
+    /**
+     * singleton pattern
+     * @return driver
+     * @author nadir
+     */
+    public static WebDriver getDriver(){
+        if(driverPool.get()==null){
             String browserType = ConfigurationReader.getProperty("browser");
-            switch (browserType.toLowerCase()) {
+            switch (browserType.toLowerCase()){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
@@ -51,9 +52,24 @@ public class Driver {
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
+                case "headless":
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--headless"); // enable headless mode
+                   // options.addArguments("--start-maximized"); // maximize
+                    WebDriverManager.chromedriver().setup();
+                    driverPool.set(new ChromeDriver(options));
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
                     driverPool.set(new EdgeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    break;
+                case "safari":
+                    WebDriverManager.safaridriver().setup();
+                    driverPool.set(new SafariDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
@@ -63,12 +79,11 @@ public class Driver {
     }
 
     /**
-     * Closing the driver.
-     *
-     * @author Elyas
+     * closing driver
+     * @author nadir
      */
-    public static void closeDriver() {
-        if (driverPool.get() != null) {
+    public static void closeDriver(){
+        if(driverPool.get() != null){
             driverPool.get().quit();
             driverPool.remove();
         }

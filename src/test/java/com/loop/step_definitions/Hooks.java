@@ -16,25 +16,26 @@ public class Hooks {
     private static final Logger LOG = LogManager.getLogger();
 
     @Before
-    public void setUp(Scenario scenario) {
+    public void setUp(Scenario scenario){
         Driver.getDriver();
         BrowserUtils.myScenario = scenario;
-        LOG.info("..........START AUTOMATION..........LOOP ACADEMY");
+        LOG.info("..........START AUTOMATION.........LOOP ACADEMY");
+
     }
 
     @After
-    public void tearDown(Scenario scenario) {
-        // Only takes a screenshot when a scenario is failed.
-        if (scenario.isFailed()) {
+    public void tearDown(Scenario scenario){
+        // only takes a screenshot when scenario is failed
+        if(scenario.isFailed()){
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
-        Driver.closeDriver();
-        LOG.info("..........END AUTOMATION..........LOOP ACADEMY");
+      // Driver.closeDriver();
+        LOG.info("..........END AUTOMATION.........LOOP ACADEMY");
     }
 
     // @AfterStep
-    public void screenShot(Scenario scenario) {
+    public void screenShot(Scenario scenario){
         final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
         scenario.attach(screenshot, "image/png", scenario.getName());
     }

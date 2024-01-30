@@ -1,20 +1,16 @@
-#@smoke
 Feature: Docuport Login Logout Feature
 
   Background:
     Given user is on Docuport login page
 
-  @day13
+  @B2G1-185 @B2G1-137 @wip
   Scenario: Login as a client
     When user enters username for client
     And user enters password for client
     And user clicks login button
-    And user click to continue button
-    And user should see the home page for client
-    And user should click Batch1 Group1 button for Log out
-    Then user should see docuport home page
+    Then user should see the home page for client
 
-  @regression @closed @wip
+  @regression @closed @smoke @nsh
   Scenario: Login as an employee
     When user enters username for employee
     And user enters password for employee
@@ -38,6 +34,14 @@ Feature: Docuport Login Logout Feature
   @dataTableMap
   Scenario: Login as a client map practice
     When user enters credentials
-      | username | b1g1_client@gmail.com |
-      | password | Group1                |
+      |username|b1g1_client@gmail.com|
+      |password|Group1               |
     Then user should see the home page for client
+
+
+
+
+
+
+
+

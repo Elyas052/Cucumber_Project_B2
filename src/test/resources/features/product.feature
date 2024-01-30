@@ -1,7 +1,8 @@
 Feature: product data table practice
 
-  @ListsOfMap
-  Scenario: verify each product price listOfList
+  @ListOfMap
+  Scenario: verify each product price
+    # practice List<Map<String, Sting>>
     Given User is on the HomePage
     Then User should be able to see expected prices in following products
       | Category | Product           | expectedPrice |
@@ -14,10 +15,28 @@ Feature: product data table practice
       | Monitors | Apple monitor 24  | 400           |
       | Monitors | ASUS Full HD      | 230           |
 
-  @ListOfList
+#  List Element 1 (Map):
+#  {Category=Phones, Product=Samsung galaxy s6, expectedPrice=360}
+#  List Element 2 (Map):
+#  {Category=Phones, Product=Nokia lumia 1520, expectedPrice=820}
+#  List Element 3 (Map):
+#  {Category=Phones, Product=Nexus 6, expectedPrice=650}
+#  List Element 4 (Map):
+#  {Category=Laptops, Product=Sony vaio i5, expectedPrice=790}
+#  List Element 5 (Map):
+#  {Category=Laptops, Product=Sony vaio i7, expectedPrice=790}
+#  List Element 6 (Map):
+#  {Category=Laptops, Product=MacBook air, expectedPrice=700}
+#  List Element 7 (Map):
+#  {Category=Monitors, Product=Apple monitor 24, expectedPrice=400}
+#  List Element 8 (Map):
+#  {Category=Monitors, Product=ASUS Full HD, expectedPrice=230}
+
+  @listOfList
+     # practice List<List<String, Sting>>
   Scenario: verify each product price listOfList
     Given User is on the HomePage
-    Then User should be able to see expected prices in following products with ListOfList
+    Then User should be able to see expected prices in following products with listOflist
       | Phones   | Samsung galaxy s6 | 360 |
       | Phones   | Nokia lumia 1520  | 820 |
       | Phones   | Nexus 6           | 650 |
@@ -27,10 +46,29 @@ Feature: product data table practice
       | Monitors | Apple monitor 24  | 400 |
       | Monitors | ASUS Full HD      | 230 |
 
-    # practice Map<String, List<String>>
+
+#  List Element 1 (List<String>): [Phones, Samsung galaxy s6, 360]
+#  List Element 2 (List<String>): [Phones, Nokia lumia 1520, 820]
+#  List Element 3 (List<String>): [Phones, Nexus 6, 650]
+#  List Element 4 (List<String>): [Laptops, Sony vaio i5, 790]
+#  List Element 5 (List<String>): [Laptops, Sony vaio i7, 790]
+#  List Element 6 (List<String>): [Laptops, MacBook air, 700]
+#  List Element 7 (List<String>): [Monitors, Apple monitor 24, 400]
+#  List Element 8 (List<String>): [Monitors, ASUS Full HD, 230]
+
+
+  # practice Map<String, List<String>>
   @mapList
   Scenario: verify students names on discord
     Then User should be able to see the following names in their groups
-      | Group 1 | Parvana | Yulia   | Feyruz |
-      | Group 2 | Maya    | Evgenii | Nadir  |
-      | Group 3 | Gavin   | Caglar  | Loop   |
+      | Group1 | Parvana | Yuliia    | Feyruz |
+      | Group2 | Maya    | Ievgeniia | Nadir  |
+      | Group3 | Gavin   | Caglar    | Loop   |
+
+
+
+
+
+
+
+
