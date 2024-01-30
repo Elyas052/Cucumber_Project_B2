@@ -6,12 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProductPage {
 
-    public void clickCategory(String category){
-        Driver.getDriver().findElement(By.xpath("//a[contains(.,'"+ category + "')]")).click();
+    public void clickCategory(String category) {
+        Driver.getDriver().findElement(By.xpath("//a[contains(.,'" + category + "')]")).click();
     }
 
-    public String getProductPrice(String product){
-        String actualPrice = Driver.getDriver().findElement(By.xpath("//a[normalize-space(.)='"+product+"']/../../h5")).getText();
+    public String getProductPrice(String product) {
+        String actualPrice = Driver.getDriver().findElement(By.xpath("//a[normalize-space(.)='" + product + "']/../../h5")).getText();
         return actualPrice.substring(1);
     }
 

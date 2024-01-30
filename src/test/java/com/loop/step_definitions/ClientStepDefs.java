@@ -19,15 +19,13 @@ public class ClientStepDefs {
     private Logger LOG = LogManager.getLogger();
     private SoftAssertions softAssertions = new SoftAssertions();
 
-
     @Then("user validates {string} text is displayed")
     public void user_validates_text_is_displayed(String text) {
-        //assertTrue(loginPage.getElement(text).isDisplayed());
+        // assertTrue(loginPage.getElement(text).isDisplayed());
         String actual = loginPage.getElementText(text);
         // assertEquals("Actual text: " + actual + " does NOT match expected: " + text, actual, text);
         softAssertions.assertThat(actual).isEqualTo("Nadir");
     }
-
 
     @Then("user clicks {string} button")
     public void user_clicks_button(String button) {
@@ -36,6 +34,6 @@ public class ClientStepDefs {
 
     @When("user validates all assertions")
     public void user_validates_all_assertions() {
-       softAssertions.assertAll();
+        softAssertions.assertAll();
     }
 }

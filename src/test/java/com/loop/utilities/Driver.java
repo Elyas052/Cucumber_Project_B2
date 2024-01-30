@@ -11,35 +11,36 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
 
 public class Driver {
-    /*
-    Creating the private constructor so this class's object is not reachable from outside
+    /**
+     * Creating the private constructor so this class's object is not reachable from and outside
      */
 
-    private Driver(){
+    private Driver() {
     }
 
-    /*
-    making driver instance private
-    static - run before everything else and also use in static method
+    /**
+     * Making driver instance private
+     * static - run before everything else and also use in static method
      */
 
     // private static WebDriver driver;
-    // implement threadLocal to achieve multi thread locally
-    private  static InheritableThreadLocal <WebDriver> driverPool = new InheritableThreadLocal<>();
+    // Implement threadLocal to achieve multi thread locally
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
-    /*
-    reusable method that will return the same driver instance every time called
+    /**
+     Reusable method that will return the same driver instance every time called
      */
 
     /**
-     * singleton pattern
+     * Singleton pattern
+     *
      * @return driver
-     * @author nadir
+     * @author Elyas
      */
-    public static WebDriver getDriver(){
-        if(driverPool.get()==null){
+    public static WebDriver getDriver() {
+        if (driverPool.get() == null) {
             String browserType = ConfigurationReader.getProperty("browser");
-            switch (browserType.toLowerCase()){
+            switch (browserType.toLowerCase()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
@@ -55,7 +56,7 @@ public class Driver {
                 case "headless":
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless"); // enable headless mode
-                   // options.addArguments("--start-maximized"); // maximize
+                    // options.addArguments("--start-maximized"); // maximize
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver(options));
                     driverPool.get().manage().window().maximize();
@@ -79,11 +80,12 @@ public class Driver {
     }
 
     /**
-     * closing driver
-     * @author nadir
+     * Closing driver
+     *
+     * @author Elyas
      */
-    public static void closeDriver(){
-        if(driverPool.get() != null){
+    public static void closeDriver() {
+        if (driverPool.get() != null) {
             driverPool.get().quit();
             driverPool.remove();
         }

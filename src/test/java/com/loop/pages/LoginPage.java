@@ -25,29 +25,24 @@ public class LoginPage extends DocuportBasePage {
     @FindBy(xpath = "Customize Toolbar...")
     public WebElement loginText;
 
-
-
     /**
-     * logins to docuport
+     * Logins to docuport
+     *
      * @param username
      * @param password
-     * @author nsh
+     * @author Elyas
      */
-    public void loginDocuport(String username, String password){
+    public void loginDocuport(String username, String password) {
         BrowserUtils.waitForVisibility(usernameInput, DocuportConstants.small);
         usernameInput.clear();
         usernameInput.sendKeys(username);
         passwordInput.clear();
         passwordInput.sendKeys(password);
         loginButton.click();
-        if (BrowserUtils.waitForVisibility(continueButton, DocuportConstants.small).isDisplayed()){
+        if (BrowserUtils.waitForVisibility(continueButton, DocuportConstants.small).isDisplayed()) {
             continueButton.click();
         }
     }
-
-
-
-
 
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);

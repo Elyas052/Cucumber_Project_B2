@@ -8,16 +8,10 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class WebDriverFactory {
 
-    /*
-     * create a static method getDriver
-     * Accepts argument String - browserType
-     * returns webdriver
-     */
-
     /**
      * @param browserType
      * @return the browser
-     * @author nsh
+     * @author Elyas
       */
     public static WebDriver getDriver (String browserType){
         if(browserType.equalsIgnoreCase("chrome")){

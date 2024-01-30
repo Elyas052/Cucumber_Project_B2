@@ -46,7 +46,6 @@ Feature: product data table practice
       | Monitors | Apple monitor 24  | 400 |
       | Monitors | ASUS Full HD      | 230 |
 
-
 #  List Element 1 (List<String>): [Phones, Samsung galaxy s6, 360]
 #  List Element 2 (List<String>): [Phones, Nokia lumia 1520, 820]
 #  List Element 3 (List<String>): [Phones, Nexus 6, 650]

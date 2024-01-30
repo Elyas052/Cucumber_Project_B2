@@ -1,4 +1,5 @@
 package com.loop.utilities;
+
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -9,7 +10,6 @@ import java.time.Duration;
 import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
-
 
 public class BrowserUtils {
 
@@ -28,12 +28,12 @@ public class BrowserUtils {
     }
 
     /**
-     * validate if driver switched to expected url and title
+     * Validate if a driver switched to expected url and title
      * @param driver
      * @param expectedUrl
      * @param expectedTitle
-     * @author nadir
-     * implements assertion
+     * @author Elyas
+     * Implements assertion
      */
     public static void switchWindowAndValidate(WebDriver driver, String expectedUrl, String expectedTitle){
         expectedTitle = expectedTitle.toLowerCase();
@@ -49,10 +49,11 @@ public class BrowserUtils {
     }
 
     /**
-     * switches to the new window by the exact title
-     * return to original window if the window with given title not found
+     * Switches to the new window by the exact title
+     * Return to the original window if the window with given title not found
      * @param driver
      * @param targetTitle
+     * @author Elyas
      */
     public static void switchToWindow(WebDriver driver, String targetTitle){
         String origin = driver.getWindowHandle();
@@ -68,8 +69,8 @@ public class BrowserUtils {
     /**
      * @param driver
      * @param expectedTitle
-     * returns void, assertion is implemented
-     * @author nadir
+     * Returns void, assertion is implemented
+     * @author Elyas
      */
     public static void validateTitle (WebDriver driver, String expectedTitle){
         assertTrue(driver.getTitle().contains(expectedTitle));
@@ -78,7 +79,7 @@ public class BrowserUtils {
     /**
      * Click any link from loop practice
      * @param nameOfPage
-     * @author nadir
+     * @author Elyas
      */
     public static void loopLinkClick(String nameOfPage){
         WebElement element = Driver.getDriver().findElement(By.xpath("//a[.='"+nameOfPage+"']"));
@@ -87,9 +88,9 @@ public class BrowserUtils {
     }
 
     /**
-     * Moves the mouse to given element
+     * Moves the mouse to give an element
      * @param element on which to hover
-     * @author nadir
+     * @author Elyas
      */
     public static void hover(WebElement element){
         Actions actions = new Actions(Driver.getDriver());
@@ -99,7 +100,7 @@ public class BrowserUtils {
     /**
      * Scrolls down to an element using JavaScript
      * @param element
-     * @author nadir
+     * @author Elyas
      */
     public static void scrollToElement(WebElement element){
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -108,7 +109,7 @@ public class BrowserUtils {
     /**
      * Clicks on an element using JavaScript
      * @param element
-     * @author nadir
+     * @author Elyas
      */
     public static void clickWithJS(WebElement element){
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -118,7 +119,7 @@ public class BrowserUtils {
     /**
      * Performs double click action on an element
      * @param element
-     * @author nadir
+     * @author Elyas
      */
     public static void doubleClick(WebElement element){
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
@@ -129,7 +130,7 @@ public class BrowserUtils {
      * @param element
      * @param timeToWaitInSec
      * @return
-     * @author nadir
+     * @author Elyas
      */
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec){
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeToWaitInSec));
@@ -140,7 +141,7 @@ public class BrowserUtils {
      * Waits for the provided element to be invisible on the page
      * @param element
      * @param timeToWaitInSec
-     * @author nadir
+     * @author Elyas
      */
     public static void waitForInVisibility(WebElement element, int timeToWaitInSec){
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeToWaitInSec));
@@ -152,7 +153,7 @@ public class BrowserUtils {
      * @param element
      * @param timeout
      * @return
-     * @author nadir
+     * @author Elyas
      */
     public static WebElement waitForClickable (WebElement element, int timeout){
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
@@ -160,9 +161,9 @@ public class BrowserUtils {
     }
 
     /**
-     * performs a pause
+     * Performs a pause
      * @param seconds
-     * @author nadir
+     * @author Elyas
      */
     public static void justWait (int seconds){
         try{
@@ -171,43 +172,4 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,7 +7,7 @@ public class TestExcel {
 
     public static void main(String[] args) {
 
-        ExcelUtils excelUtils = new ExcelUtils("/Users/nsh/Documents/Repo/cucumber-project-b2/src/test/resources/Sample.xlsx", "Nadir");
+        ExcelUtils excelUtils = new ExcelUtils("Users/shely/OneDrive/Рабочий стол/Sample.xlsx", "Nadir");
        // System.out.println("excelUtils.getCellData(1, 2) = " + excelUtils.getCellData(3, 1));
 
         List<Map<String, String>> dataList = excelUtils.getDataListV2();
@@ -18,8 +18,5 @@ public class TestExcel {
             }
             System.out.println("-------------------------------");
         }
-
-
-
     }
 }

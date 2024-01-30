@@ -8,13 +8,12 @@ import java.util.InputMismatchException;
 
 public class DocuportWebTableUtils {
 
-
     /**
-     * returns any field from table by given email
+     * Returns any field from table by given email
      * @param driver
      * @param emailAddress
      * @param field
-     * @author nadir
+     * @author Elyas
      */
     public static String returnAnyField(WebDriver driver, String emailAddress, String field){
         WebElement element = null;

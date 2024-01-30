@@ -5,7 +5,6 @@ package com.loop.utilities;
  */
 public class DemoqaConstants {
 
-
     /**
      * Description for the main iframe in the Demoqa application.
      */

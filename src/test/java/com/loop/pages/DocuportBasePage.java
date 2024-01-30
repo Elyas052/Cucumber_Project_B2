@@ -15,10 +15,8 @@ public class DocuportBasePage {
 
     private static final Logger LOG = LogManager.getLogger();
 
-
     @FindBy(xpath = "//span[.=' Continue ']")
     public WebElement continueButton;
-
 
     public String getElementText(String text){
         String xpath = "//*[normalize-space()='"+ text + "']";
@@ -51,7 +49,6 @@ public class DocuportBasePage {
                 LOG.error("No such " + button + "exists");
                 throw new IllegalArgumentException();
         }
-
     }
 
     public DocuportBasePage() {

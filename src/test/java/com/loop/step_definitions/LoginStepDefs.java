@@ -1,6 +1,5 @@
 package com.loop.step_definitions;
 
-
 import com.loop.pages.LoginPage;
 import com.loop.utilities.BrowserUtils;
 import com.loop.utilities.ConfigurationReader;
@@ -12,18 +11,17 @@ import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
-
 public class LoginStepDefs {
 
     LoginPage loginPage = new LoginPage();
 
     @Given("user is on Docuport login page")
     public void user_is_on_docuport_login_page() {
-        // this will read from the parameter you created in Jenkins Job
+        // This will read from the parameter you created in Jenkins Job
         // String envFromJenkins = System.getenv()
-        //String envFromJenkins = System.getenv("env");
+        // String envFromJenkins = System.getenv("env");
 
-      // Driver.getDriver().get(ConfigurationReader.getProperty(envFromJenkins));
+        // Driver.getDriver().get(ConfigurationReader.getProperty(envFromJenkins));
         // Driver.getDriver().get(ConfigurationReader.getProperty(System.getenv("env")));
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
         BrowserUtils.takeScreenshot();
@@ -69,10 +67,12 @@ public class LoginStepDefs {
     public void user_enters_username_for_advisor() {
 
     }
+
     @When("user enters password for advisor")
     public void user_enters_password_for_advisor() {
 
     }
+
     @Then("user should see the home page for advisor")
     public void user_should_see_the_home_page_for_advisor() {
 
@@ -82,17 +82,19 @@ public class LoginStepDefs {
     public void user_enters_username_for_supervisor() {
 
     }
+
     @When("user enters password for supervisor")
     public void user_enters_password_for_supervisor() {
 
     }
+
     @Then("user should see the home page for supervisor")
     public void user_should_see_the_home_page_for_supervisor() {
 
     }
 
     @When("user enters credentials")
-    public void user_enters_credentials(Map <String, String> credentials ) {
+    public void user_enters_credentials(Map<String, String> credentials) {
 
 //        for (Map.Entry <String, String> entry : credentials.entrySet() ){
 //            String key = entry.getKey();
@@ -103,7 +105,5 @@ public class LoginStepDefs {
 //        }
 
         loginPage.loginDocuport(credentials.get("username"), credentials.get("password"));
-
     }
-
 }
