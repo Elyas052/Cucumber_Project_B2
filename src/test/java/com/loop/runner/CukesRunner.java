@@ -27,13 +27,13 @@ import org.junit.runner.RunWith;
         dryRun = false,
 
         // Run scenarios with the specified tags
-        tags = "@multiThread",
+        tags = "@wip",
 
         // Display console output in monochrome format
         monochrome = true,
 
         // Do not publish the results
-        publish = true
+        publish = false
 )
 public class CukesRunner {
 }

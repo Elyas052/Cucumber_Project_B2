@@ -1,6 +1,6 @@
 package com.loop.step_definitions.task.day14;
 
-import com.loop.pages.task.day14.T_Day14_WikiSearchPage;
+import com.loop.pages.task.day14.WikiSearchPage;
 import com.loop.utilities.ConfigurationReader;
 import com.loop.utilities.Driver;
 import io.cucumber.java.en.*;
@@ -9,11 +9,11 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
-public class T_Day14_WikipediaStepDefs {
+public class WikipediaStepDefs {
 
     private static final Logger LOG = LogManager.getLogger();
 
-    T_Day14_WikiSearchPage tDay14WikipediaStepDefs = new T_Day14_WikiSearchPage();
+    WikiSearchPage tDay14WikipediaStepDefs = new WikiSearchPage();
 
     String actual = "";
 

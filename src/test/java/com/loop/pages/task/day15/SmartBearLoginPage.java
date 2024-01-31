@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class T_Day15_SmartBearLoginPage extends T_Day15_SmartBearBasePage {
+public class SmartBearLoginPage extends SmartBearBasePage {
     public static void logIn() {
         Driver.getDriver().get(ConfigurationReader.getProperty("smart.bear"));
         getUsername().sendKeys(SmartBearSoftConstants.USERNAME);
@@ -34,7 +34,7 @@ public class T_Day15_SmartBearLoginPage extends T_Day15_SmartBearBasePage {
     @FindBy(xpath = "//table[@class='SampleTable']//tr//following-sibling::tr")
     private static List<WebElement> dataTable;
 
-    public T_Day15_SmartBearLoginPage() {
+    public SmartBearLoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 }

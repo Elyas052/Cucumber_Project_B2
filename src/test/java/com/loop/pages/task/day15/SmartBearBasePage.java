@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class T_Day15_SmartBearBasePage {
+public class SmartBearBasePage {
     public static WebElement getUsername() {
         return username;
     }
@@ -25,7 +25,7 @@ public class T_Day15_SmartBearBasePage {
     @FindBy(xpath = "//input[@type='submit']")
     private static WebElement loginButton;
 
-    public T_Day15_SmartBearBasePage() {
+    public SmartBearBasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 }

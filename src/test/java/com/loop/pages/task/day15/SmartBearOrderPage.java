@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 
-public class T_Day15_SmartBearOrderPage extends T_Day15_SmartBearLoginPage {
+public class SmartBearOrderPage extends SmartBearLoginPage {
     public static WebElement getOrderButton() {
         return orderButton;
     }
@@ -62,7 +62,7 @@ public class T_Day15_SmartBearOrderPage extends T_Day15_SmartBearLoginPage {
         }
     }
 
-    public T_Day15_SmartBearOrderPage() {
+    public SmartBearOrderPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 }

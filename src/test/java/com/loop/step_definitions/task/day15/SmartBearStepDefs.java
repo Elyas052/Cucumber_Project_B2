@@ -1,6 +1,6 @@
 package com.loop.step_definitions.task.day15;
 
-import com.loop.pages.task.day15.T_Day15_SmartBearOrderPage;
+import com.loop.pages.task.day15.SmartBearOrderPage;
 import com.loop.utilities.*;
 import io.cucumber.java.en.*;
 import org.apache.logging.log4j.LogManager;
@@ -11,17 +11,17 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Map;
 
-import static com.loop.pages.task.day15.T_Day15_SmartBearOrderPage.*;
+import static com.loop.pages.task.day15.SmartBearOrderPage.*;
 import static com.loop.utilities.SmartBearSoftConstants.*;
 import static org.junit.Assert.assertEquals;
 
-public class T_Day15_SmartBearStepDefs {
+public class SmartBearStepDefs {
 
     private static final Logger LOG = LogManager.getLogger();
 
     @Given("user is already logged in and navigated to order page")
     public void loggedAndNavigatedToOrderPage() {
-        PageFactory.initElements(Driver.getDriver(), new T_Day15_SmartBearOrderPage());
+        PageFactory.initElements(Driver.getDriver(), new SmartBearOrderPage());
         logIn();
         orderPage();
         LOG.info("The user is on the SmartBear page");

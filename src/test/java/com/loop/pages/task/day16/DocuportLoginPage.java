@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class T_Day16_DocuportLoginPage {
+public class DocuportLoginPage {
 
     @FindBy(xpath = "//input[contains(@id, 'input') and contains(@type, 'test')]")
     public WebElement userNameInput;
@@ -30,7 +30,7 @@ public class T_Day16_DocuportLoginPage {
     /**
      * Initializes the GoogleSearchPage by initializing the PageFactory.
      */
-    public T_Day16_DocuportLoginPage() {
+    public DocuportLoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 }

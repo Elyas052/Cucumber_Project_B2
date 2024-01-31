@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class T_Day14_WikiSearchPage {
+public class WikiSearchPage {
 
     @FindBy(xpath = "//input[@id='searchInput']")
     public WebElement searchBox;
@@ -23,7 +23,7 @@ public class T_Day14_WikiSearchPage {
     /**
      * Initializes the GoogleSearchPage by initializing the PageFactory.
      */
-    public T_Day14_WikiSearchPage() {
+    public WikiSearchPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 }
