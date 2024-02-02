@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
 
         // Run scenarios with the specified tags
-        tags = "@wip",
+        tags = "@multiThread",
 
         // Display console output in monochrome format
         monochrome = true,

@@ -1,13 +1,22 @@
 package com.loop.utilities;
 
 import io.cucumber.java.Scenario;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertTrue;
 
@@ -17,6 +26,7 @@ import static org.junit.Assert.assertTrue;
 public class BrowserUtils {
 
     public static Scenario myScenario;
+    private static final Logger LOG = LogManager.getLogger();
 
     /**
      * Takes a screenshot and attaches it to the Cucumber scenario.
@@ -183,4 +193,114 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Extracts the text content of WebElements and returns a List of Strings.
+     * @param elements List of WebElements
+     * @return List of Strings representing the text content of each WebElement
+     */
+    public static List<String> getElementsText(List<WebElement> elements) {
+        List<String> elementsText = new ArrayList<>();
+        for (WebElement element : elements) {
+            elementsText.add(element.getText());
+        }
+        return elementsText;
+    }
+
+    /**
+     * Uses Java Streams to extract the text content of WebElements and returns a List of Strings.
+     * @param elements List of WebElements
+     * @return List of Strings representing the text content of each WebElement
+     */
+    public static List<String> getElementsTextWithStream(List<WebElement> elements) {
+        return elements.stream()
+                .map(x -> x.getText())
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Uses Java Streams with method reference to extract the text content of WebElements and returns a List of Strings.
+     * @param elements List of WebElements
+     * @return List of Strings representing the text content of each WebElement
+     */
+    public static List<String> getElementsTextWithStream2(List<WebElement> elements) {
+        return elements.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Waits for the page to be fully loaded by checking the document.readyState.
+     * @param timeOutInSeconds Maximum time to wait for the page to load
+     */
+    public static void waitForPageToLoad(long timeOutInSeconds) {
+        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+            }
+        };
+        try {
+            LOG.info("Waiting for page to load...");
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeOutInSeconds));
+            wait.until(expectation);
+        } catch (Throwable error) {
+            LOG.info("Timeout waiting for Page Load Request to complete after " + timeOutInSeconds + " seconds");
+        }
+    }
+
+    /**
+     * Waits for a WebElement to become stale (no longer attached to the DOM).
+     * @param element WebElement to wait for staleness
+     */
+    public static void waitForStaleElement(WebElement element) {
+        int y = 0;
+        while (y <= 15) {
+            try {
+                element.isDisplayed();
+                break;
+            } catch (StaleElementReferenceException st) {
+                y++;
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } catch (WebDriverException we) {
+                y++;
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * Creates a new file at the specified filePath and writes the provided content into it.
+     * @param filePath Path where the file should be created
+     * @param content Content to be written into the file
+     */
+    public static void createFileWithContent(String filePath, String content) {
+        File file = new File(filePath);
+
+        try {
+            file.createNewFile();
+            FileWriter fw = new FileWriter(file);
+            try {
+                fw.write(content);
+            } catch (Exception e) {
+                LOG.debug("Error during FileWriter append. " + e.getMessage(), e.getCause());
+            } finally {
+                try {
+                    fw.close();
+                } catch (Exception e) {
+                    LOG.debug("Error during FileWriter close. " + e.getMessage(), e.getCause());
+                }
+            }
+        } catch (IOException e) {
+            LOG.debug(e.getMessage(), e.getCause());
+        }
+    }
+
 }
