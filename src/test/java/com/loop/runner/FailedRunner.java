@@ -1,9 +1,3 @@
-package com.loop.runner;
-
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
-
 /**
  * JUnit Runner class for running failed Cucumber scenarios.
  * The CucumberOptions annotation is configured to generate reports in HTML and JSON formats.
@@ -12,6 +6,11 @@ import org.junit.runner.RunWith;
  * The monochrome option ensures that the console output is more readable.
  * The publication option is set too false to prevent publishing results to the Cucumber dashboard.
  */
+package com.loop.runner;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(

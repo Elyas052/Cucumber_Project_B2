@@ -1,12 +1,11 @@
-package com.loop.step_definitions;
-
-
 /**
  * Hooks class containing setup and teardown methods for Cucumber scenarios.
  * Implements @Before, @After, and @AfterStep annotations for setup, teardown, and taking screenshots after each step.
  * Use BrowserUtils.myScenario to share the scenario information across methods.
  * Implement logging for the start and end of automation.
  */
+
+package com.loop.step_definitions;
 
 import com.loop.utilities.BrowserUtils;
 import com.loop.utilities.Driver;
